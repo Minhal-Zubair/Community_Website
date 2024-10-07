@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
+    <title>Interative comments section</title>
+    <style>
+        :root {
+            --neutral: #000;
+            --on-primary-container: #77787c;
+            --on-primary: #232a85;
+            --on-secondary: #68727e;
+            --primary-container: #fff;
+            --primary-smooth-gray: #f5f6fa;
+            --secondary: #c4c6ef;
+            --tertiary-container: #f1b9c0;
+            --tertiary: #f06264;
+            --elevation-one: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+                0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+                --header-background: #060b4f; 
+            --header-text-color: #fff; 
+            --comment-bg: #ffffff; /* Background color for comment section */
+            --background-image: url('https://st2.depositphotos.com/1826664/5444/i/450/depositphotos_54440289-stock-photo-contact-us-background-pattern-blue.jpg'); 
+            --animation-duration: 0.3s;
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 100px 0 0 0;
+            font-family: "Rubik", sans-serif;
+            line-height: calc(1rem * 1.5);
+            background-color: var(--primary-smooth-gray);
+            box-sizing: border-box;
+            background-color: var(--primary-smooth-gray);
+            background-image: var(--background-image);
+            background-size: cover;
+        }
+
+        header {
+            background-color: var(--header-background);
+            color: var(--header-text-color);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: var(--elevation-one);
+        }
+
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+        @media only screen and (max-width: 600px) {
+            body {
+                margin: 0;
+                padding: 60px 0 0 0;
+            }
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            body {
+                margin: 0;
+                padding: 60px 0 0 0;
+            }
+        }
+
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--elevation-one);
+            background-color: var(--comment-bg);
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 0 8px;
+            }
+        }
+
+        /*! typography */
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bold-primary-text {
+            font-weight: bold;
+            color: var(--on-primary);
+        }
+
+        .bold-neutral-text {
+            margin-bottom: 25px;
+            color: var(--neutral);
+            font-weight: bold;
+        }
+
+        .user-text-comment {
+            color: var(--on-primary-container);
+        }
+
+        .user-tweet {
+            display: flex;
+            padding: 20px;
+            background-color: var(--primary-container);
+            gap: 24px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin: 30px 0;
+        }
+
+        .tweet-replies {
+            flex: 1;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .user-tweet {
+                flex-direction: column-reverse;
+            }
+        }
+
+        .user-tweet-reply {
+            display: flex;
+            padding: 20px;
+            background-color: var(--primary-container);
+            gap: 24px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .user-tweet-reply {
+                flex-direction: column-reverse;
+            }
+        }   
+        .replies {
+            display: flex;
+            gap: 60px;
+            justify-content: end;
+            align-items: end;
+            padding-left: 40px;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            .replies {
+                gap: 30px;
+                padding-left: 10px;
+            }
+        }
+
+        .vertical-stroke {
+            width: 2px;
+            align-self: stretch;
+            background-color: var(--secondary);
+        }
+
+        @media only screen and (max-width: 600px) {
+            .vertical-stroke {
+                margin-left: 12px;
+            }
+        }
+
+        .user-comment {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .username-bar {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 16px;
+        }
+
+        .username {
+            font-weight: bold;
+            color: var(--neutral);
+        }
+
+        .tweet-time {
+            color: var(--on-primary-container);
+        }
+        .tweet-interaction-mobile {
+            display: flex;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .tweet-interaction-mobile {
+                display: flex;
+                align-items: center;
+                justify-content: start;
+            }
+        }
+
+        .current-user-comment {
+            display: flex;
+            margin-top: 30px;
+            gap: 20px;
+            flex-direction: row;
+            background-color: var(--primary-container);
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        /*! Button */
+        .increment-button {
+            background-color: var(--primary-smooth-gray);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            gap: 8px;
+            color: var(--on-primary-container);
+            align-self: start;
+            padding: 5px 10px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .increment-button:hover {
+            color: var(--on-primary);
+        }
+
+        @media only screen and (max-width: 600px) {
+            .increment-button {
+                flex-direction: row;
+            }
+        }
+
+        button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px 10px 12px;
+            font-family: inherit;
+            font-weight: bold;
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+            cursor: pointer;
+        }
+
+        .icon-size {
+            font-size: 20px;
+        }
+
+        .button-primary:hover,
+        .button-primary:active {
+            color: var(--secondary);
+        }
+
+        .button-tertiary {
+            color: var(--tertiary);
+        }
+
+        .button-tertiary:hover,
+        .button-tertiary:active {
+            color: var(--tertiary-container);
+        }
+
+        .button-common {
+            background-color: var(--on-primary);
+            color: var(--primary-container);
+            border-radius: 10px;
+            padding: 10px 24px;
+            align-self: start;
+        }
+
+        .button-common:hover,
+        .button-common:active {
+            background-color: var(--secondary);
+        }
+
+        .button-common-cancel {
+            background-color: var(--on-primary-container);
+            color: var(--primary-container);
+            border-radius: 10px;
+            padding: 10px 24px;
+        }
+
+        .button-common-delete {
+            background-color: var(--tertiary);
+            color: var(--primary-container);
+            border-radius: 10px;
+            padding: 10px 24px;
+        }
+
+        .fill-button {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            flex: 1;
+        }
+
+        .display-update-btn-none {
+            display: none;
+        }
+
+        div .display-update-btn-flex {
+            display: flex;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .fill-button {
+                display: none;
+            }
+        }
+
+        .fill-button-mobile {
+            display: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .fill-button-mobile {
+                display: flex;
+                flex: 1;
+                justify-content: end;
+                align-items: center;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .common-button-display {
+                display: none;
+            }
+        }
+
+        .group-button-prompt {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        /*! tweets */
+        .user-tweet {
+            display: flex;
+            padding: 20px;
+            background-color: var(--primary-container);
+            gap: 24px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin: 30px 0;
+        }
+
+        .tweet-replies {
+            flex: 1;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .user-tweet {
+                flex-direction: column-reverse;
+            }
+        }
+
+        .user-tweet-reply {
+            display: flex;
+            padding: 20px;
+            background-color: var(--primary-container);
+            gap: 24px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .user-tweet-reply {
+                flex-direction: column-reverse;
+            }
+        }
+
+        .replies {
+            display: flex;
+            gap: 60px;
+            justify-content: end;
+            align-items: end;
+            padding-left: 40px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .replies {
+                gap: 30px;
+                padding-left: 10px;
+            }
+        }
+
+        .vertical-stroke {
+            width: 2px;
+            align-self: stretch;
+            background-color: var(--secondary);
+        }
+
+        @media only screen and (max-width: 600px) {
+            .vertical-stroke {
+                margin-left: 12px;
+            }
+        }
+
+        .user-comment {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .username-bar {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 16px;
+        }
+
+        .username {
+            font-weight: bold;
+            color: var(--neutral);
+        }
+
+        .tweet-time {
+            color: var(--on-primary-container);
+        }
+
+        .tweet-interaction-mobile {
+            display: flex;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .tweet-interaction-mobile {
+                display: flex;
+                align-items: center;
+                justify-content: start;
+            }
+        }
+
+        /*! current user tweet */
+        .current-user-comment {
+            display: flex;
+            margin-top: 30px;
+            gap: 20px;
+            flex-direction: row;
+            background-color: var(--primary-container);
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .current-user-comment {
+                flex-direction: column-reverse;
+            }
+        }
+
+        textarea {
+            resize: none;
+            flex: 1;
+            border: none;
+            outline-color: var(--on-primary-container);
+            height: 100px;
+            box-shadow: var(--elevation-one);
+            border-radius: 5px;
+            padding: 16px 10px 0px 24px;
+            color: var(--on-primary-container);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        @media only screen and (max-width: 600px) {
+            textarea {
+                flex: none;
+            }
+        }
+
+        .current-user-interaction {
+            display: flex;
+            align-items: start;
+            justify-content: start;
+        }
+
+        .current-user-badge {
+            padding: 4px 8px;
+            background-color: var(--on-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            color: var(--primary-container);
+            font-weight: 500;
+        }
+
+        .currentUserSendReply {
+            display: none;
+        }
+
+        .display-flex {
+            display: flex;
+        }
+
+        .editable-paragraph[contenteditable="true"] {
+            outline: 1px solid var(--neutral);
+            padding: 16px 10px 10px 24px;
+            border-radius: 5px;
+            overflow: scroll;
+            box-sizing: border-box;
+        }
+
+        .editable-paragraph-comment {
+            max-width: 700px;
+        }
+
+        .editable-paragraph-reply {
+            max-width: 598px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .editable-paragraph-reply {
+                max-width: 318px;
+            }
+        }
+
+        /*! prompt */
+        .delete-prompt {
+            padding: 24px 30px;
+            background-color: var(--primary-container);
+            width: 270px;
+            height: 180px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 10;
+        }
+
+        .bg-prompt {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.39);
+            top: 0;
+            left: 0;
+            z-index: 9;
+        }
+
+        .delete-prompt-and-bg {
+            display: none;
+        }
+
+        /* footer */
+
+        footer {
+            /* background-color: var(--on-primary); */
+            color: var(--primary-container);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 0;
+            margin-top: 30px;
+        }
+
+        /* Reply Form Visibility */
+.reply-form {
+    display: none;
+    margin-top: 10px;
+}
+
+.reply-form textarea {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.reply-form button {
+    background-color: var(--tertiary);
+    color: var(--primary-container);
+}
+
+/* Comment Actions */
+.comment-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.comment-actions button {
+    background: none;
+    border: none;
+    color: var(--tertiary);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.comment-actions button:hover {
+    color: var(--neutral);
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Comment Page</h1>
+    </header>
+    <div class="container">
+        <div id="commentsContainerEl"></div>
+
+         <!-- Sample Comment 1 -->
+         <div class="user-tweet" data-id="1">
+            <img src="https://github.com/GutoAS/Interactive-comments-section-js-html-css/blob/main/images/avatars/image-juliusomo.png?raw=true" alt="user profile picture" class="avatar" />
+            <div class="user-comment">
+                <div class="username-bar">
+                    <p class="username">John</p>
+                    <p class="tweet-time">2 hours ago</p>
+                </div>
+                <p class="user-text-comment">Excited about the new advancements in AI! Can't wait for the next keynote.</p>
+                <div class="tweet-interaction-mobile">
+                    <button class="button-tertiary reply-btn">Reply</button>
+                    <button class="button-tertiary edit-btn">Edit</button>
+                    <button class="button-tertiary delete-btn">Delete</button>
+                </div>
+                <div class="reply-form" style="display: none;">
+                    <textarea placeholder="Write a reply..."></textarea>
+                    <button class="reply-send-btn">Send Reply</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Comment 2 -->
+        <div class="user-tweet" data-id="2">
+            <img src="https://github.com/GutoAS/Interactive-comments-section-js-html-css/blob/main/images/avatars/image-amyrobson.png?raw=true" alt="user profile picture" class="avatar" />
+            <div class="user-comment">
+                <div class="username-bar">
+                    <p class="username">Eliza</p>
+                    <p class="tweet-time">1 day ago</p>
+                </div>
+                <p class="user-text-comment">Will there be live demos of the new software at the event?</p>
+                <div class="tweet-interaction-mobile">
+                    <button class="button-tertiary reply-btn">Reply</button>
+                    <button class="button-tertiary edit-btn">Edit</button>
+                    <button class="button-tertiary delete-btn">Delete</button>
+                </div>
+                <div class="reply-form" style="display: none;">
+                    <textarea placeholder="Write a reply..."></textarea>
+                    <button class="reply-send-btn">Send Reply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div class="current-user-comment">
+            <div class="current-user-interaction">
+                <img src="https://github.com/GutoAS/Interactive-comments-section-js-html-css/blob/main/images/avatars/image-juliusomo.png?raw=true" alt="current user profile picture" class="avatar" />
+                <div class="fill-button-mobile">
+                    <button class="button-common" data-send-mobile-btn="sendButton">
+                        Send
+                    </button>
+                </div>
+            </div>
+            <textarea name="" id="currentUserComment" placeholder="Add a comment..."></textarea>
+            <button data-send-desktop-btn="sendButton" class="button-common common-button-display">
+                Send
+            </button>
+        </div>
+    </div>
+    <footer>
+        
+    </footer>
+    <div id="deletePrompt" class="delete-prompt-and-bg">
+        <div class="delete-prompt">
+            <div>
+                <p class="bold-neutral-text">Delete comment</p>
+                <p class="user-text-comment">
+                    Are you sure you want to delete this comment? This will remove and
+                    can’t be undone
+                </p>
+            </div>
+
+            <div class="group-button-prompt">
+                <button class="button-common-cancel" id="cancelBtn">No Cancel</button>
+                <button class="button-common-delete" id="deleteBtn">
+                    Yes, Delete
+                </button>
+            </div>
+        </div>
+        <div class="bg-prompt"></div>
+    </div>
+
+    <script src="comment.js" type="module"></script>
+</body>
+
+</html>
