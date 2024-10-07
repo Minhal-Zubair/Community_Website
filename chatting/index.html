@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>WebSocket Chat</title>
+</head>
+<body>
+  <header class="chat-header">
+    <h1>ChatBooth</h1>
+    <p>Let's have a chat!!</p>
+  </header>
+  <div class="username-container">
+    <input type="text" id="usernameInput" placeholder="Enter your username">
+    <button id="setUsernameButton">Set Username</button>
+  </div>
+  
+  <div class="chat-container">
+    <div class="messages-container" id="messages"></div>
+    <div class="message-input-container">
+      <input type="text" id="messageInput" placeholder="Type a message...">
+      <button id="sendButton">Send</button>
+    </div>
+
+    <div class="user-list">
+      <h2>Online Users</h2>
+      <ul id="userList"></ul>
+    </div>
+  </div>
+
+  <script>
+    const messagesDiv = document.getElementById('messages');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+    const usernameInput = document.getElementById('usernameInput');
+    const setUsernameButton = document.getElementById('setUsernameButton');
+    const userList = document.getElementById('userList');
+    const ws = new WebSocket('ws://localhost:3000');
+
+    let currentUsername = '';
+
+  
+    // Set username
+setUsernameButton.addEventListener('click', () => {
+  const username = usernameInput.value.trim();
+  if (username) {
+      currentUsername = username; // Store the username
+      ws.send(JSON.stringify({ type: 'setUsername', username }));
+      usernameInput.value = ''; // Clear the input
+  } else {
+      alert('Please enter a valid username.');
+  }
+});
+
+    ws.addEventListener('message', (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type === 'message') {
+        displayMessage(data.message, data.sender);
+      } else if (data.type === 'userList') {
+        updateUserList(data.users);
+      }
+    });
+  
+   // Send message
+    sendButton.addEventListener('click', () => {
+      const message = messageInput.value;
+      if (message.trim()) {
+        ws.send(JSON.stringify({ type: 'message', message }));
+        displayMessage(message, currentUsername); // Display own message
+        messageInput.value = ''; // Clear the input
+      }
+    });
+  
+    // Display message
+function displayMessage(message, sender) {
+  const messageContainer = document.createElement('div');
+  const timestamp = new Date().toLocaleTimeString();
+  const messageElement = document.createElement('div');
+  messageElement.textContent = `${sender} (${timestamp}): ${message}`;
+
+  messageContainer.classList.add('message-container');
+  
+  if (sender === currentUsername) {
+      messageContainer.classList.add('sender-message-container');
+      messageElement.classList.add('message-bubble', 'sender-message-bubble');
+  } else {
+      messageContainer.classList.add('receiver-message-container');
+      messageElement.classList.add('message-bubble', 'receiver-message-bubble');
+  }
+
+      messageContainer.appendChild(messageElement);
+      messagesDiv.appendChild(messageContainer);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function updateUserList(users) {
+      userList.innerHTML = '';
+      users.forEach(user => {
+        const li = document.createElement('li');
+        li.textContent = user;
+        userList.appendChild(li);
+      });
+
+      const usernameInput = document.getElementById('usernameInput');
+const setUsernameButton = document.getElementById('setUsernameButton');
+
+// Prompt for username
+setUsernameButton.addEventListener('click', () => {
+  const username = usernameInput.value.trim();
+  if (username) {
+    ws.send(JSON.stringify({ type: 'setUsername', username }));
+    usernameInput.value = ''; // Clear the input
+  } else {
+    alert('Please enter a valid username.');
+  }
+});
+
+// Update existing code to display usernames
+ws.addEventListener('message', (event) => {
+  const data = JSON.parse(event.data);
+  if (data.type === 'message') {
+    displayMessage(data.message, data.sender);
+  } else if (data.type === 'userList') {
+    updateUserList(data.users);
+  }
+});
+
+    }
+  </script>
+</body>
+</html>
