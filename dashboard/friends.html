@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <title>Friends</title>
+  </head>
+  <body>
+    <div class="page-content">
+      <div class="sidebar">
+        <div class="brand">
+          <i class="fa-solid fa-xmark xmark"></i>
+          <h3>Zana</h3>
+        </div>
+        <ul>
+          <li>
+            <a href="index.html" class="sidebar-link">
+              <i class="fa-regular fa-chart-bar fa-fw"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="settings.html" class="sidebar-link">
+              <i class="fa-solid fa-gear fa-fw"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="profile.html" class="sidebar-link">
+              <i class="fa-regular fa-user fa-fw"></i><span>Profile</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="projects.html" class="sidebar-link">
+              <i class="fa-solid fa-diagram-project fa-fw"></i
+              ><span>Projects</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="courses.html" class="sidebar-link">
+              <i class="fa-solid fa-graduation-cap fa-fw"></i
+              ><span>Courses</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="friends.html" class="sidebar-link">
+              <i class="fa-regular fa-circle-user fa-fw"></i
+              ><span>Friends</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="files.html" class="sidebar-link">
+              <i class="fa-regular fa-file fa-fw"></i> <span>Files</span>
+            </a>
+          </li>
+
+         
+        </ul>
+      </div>
+      <main>
+        <div class="header">
+          <i class="fa-solid fa-bars bar-item"></i>
+          <div class="search">
+            <input type="search" placeholder="Type A Keyword" />
+          </div>
+
+          <div class="profile">
+            <span class="bell"><i class="fa-regular fa-bell fa-lg"></i></span>
+            <img src="team-02.png" alt="No Image" />
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="title">
+            <h1>Friends</h1>
+          </div>
+          <div class="friends-main-boxes">
+            <div class="friends-box-card">
+              <div class="friends-box-card-contact">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="friends-box-card-info">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQHHadqY9D7LKw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1690589876771?e=1732752000&v=beta&t=KvOBPX_l7kdHZZ2JbzX7qaBb7UYK2Y3R7HR8r8vsy5g" alt="" />
+                <h4>Ahmed Nasser</h4>
+                <p>Co-Founder/President at Sully.ai </p>
+              </div>
+              <div class="friends-box-card-body">
+                <h1>VIP</h1>
+                <ul>
+                  <li>
+                    <i class="fa-regular fa-face-smile"></i
+                    ><span>99 Friends</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-code-commit"></i
+                    ><span>15 Projects</span>
+                  </li>
+                  <li>
+                    <i class="fa-regular fa-newspaper"></i
+                    ><span>25 Articles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="friends-box-card-footer">
+                <p>Joined 02/10/2021</p>
+                <div class="friends-box-card-footer-buttons">
+                  <a href="https://www.linkedin.com/in/realahmednasser/">Profile</a>
+                  <a href="/#" onclick="deleteProfile('Numan Abid')">Remove</a>
+                </div>
+              </div>
+            </div>
+            <div class="friends-box-card">
+              <div class="friends-box-card-contact">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="friends-box-card-info">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHkv90Bl3p2DQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1665510658202?e=1732752000&v=beta&t=Gp7YZ4JbJAUObES-2GKHyPndi5R7YO3XrLszH8Sjwx0" alt="" />
+                <h4>Omar Zeb</h4>
+                <p>Data Scientist</p>
+              </div>
+              <div class="friends-box-card-body">
+                <ul>
+                  <li>
+                    <i class="fa-regular fa-face-smile"></i
+                    ><span>30 Friends</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-code-commit"></i
+                    ><span>11 Projects</span>
+                  </li>
+                  <li>
+                    <i class="fa-regular fa-newspaper"></i
+                    ><span>12 Articles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="friends-box-card-footer">
+                <p>Joined 02/08/2020</p>
+                <div class="friends-box-card-footer-buttons">
+                  <a href="https://www.linkedin.com/in/omar-zeb-677416b7/">Profile</a>
+                  <a href="/#" onclick="deleteProfile('Omar Zeb')">Remove</a>
+                </div>
+              </div>
+            </div>
+            <div class="friends-box-card">
+              <div class="friends-box-card-contact">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="friends-box-card-info">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGzm3vh97_q-Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711962006153?e=1732752000&v=beta&t=_Q3UAKiGyMqirH1ajW-DmF1SaeIuAmAwBru9eRCqnxQ" alt="" />
+                <h4>Umair Mahmood</h4>
+                <p>Mobile App Developer</p>
+              </div>
+              <div class="friends-box-card-body">
+                <ul>
+                  <li>
+                    <i class="fa-regular fa-face-smile"></i
+                    ><span>80 Friends</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-code-commit"></i
+                    ><span>20 Projects</span>
+                  </li>
+                  <li>
+                    <i class="fa-regular fa-newspaper"></i
+                    ><span>18 Articles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="friends-box-card-footer">
+                <p>Joined 02/06/2020</p>
+                <div class="friends-box-card-footer-buttons">
+                  <a href="https://www.linkedin.com/in/umair-mahmood-7b6b60141/">Profile</a>
+                  <a href="/#" onclick="deleteProfile('Umair Mahmood')">Remove</a>
+                </div>
+              </div>
+            </div>
+            <div class="friends-box-card">
+              <div class="friends-box-card-contact">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="friends-box-card-info">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQFiR4C-TT_mFA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1696318860070?e=1732752000&v=beta&t=_Ok8uTJySZV-Us7wRXLqA-zAd4veYaqnjGdUD4VNDRM" alt="" />
+                <h4>Ibrahim Ahmed</h4>
+                <p>Back-End Developer</p>
+              </div>
+              <div class="friends-box-card-body">
+                <ul>
+                  <li>
+                    <i class="fa-regular fa-face-smile"></i
+                    ><span>70 Friends</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-code-commit"></i
+                    ><span>30 Projects</span>
+                  </li>
+                  <li>
+                    <i class="fa-regular fa-newspaper"></i
+                    ><span>18 Articles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="friends-box-card-footer">
+                <p>Joined 28/06/2020</p>
+                <div class="friends-box-card-footer-buttons">
+                  <a href="https://www.linkedin.com/in/ibrahim-ahmed-i/">Profile</a>
+                  <a href="/#" onclick="deleteProfile('Ibrahim Ahmed')">Remove</a>
+                </div>
+              </div>
+            </div>
+            <div class="friends-box-card">
+              <div class="friends-box-card-contact">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="friends-box-card-info">
+                <img src="https://media.licdn.com/dms/image/v2/C4D03AQExVjwQ3nAGGg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1600691277844?e=1732752000&v=beta&t=4cV8fHb1D9HWUOQmYkOS-0Sv7dLEl8WBisguS_CmXXk" alt="" />
+                <h4>Eyar Ben-Tolila</h4>
+                <p>Algorithm Developer</p>
+              </div>
+              <div class="friends-box-card-body">
+                <ul>
+                  <li>
+                    <i class="fa-regular fa-face-smile"></i
+                    ><span>80 Friends</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-code-commit"></i
+                    ><span>30 Projects</span>
+                  </li>
+                  <li>
+                    <i class="fa-regular fa-newspaper"></i
+                    ><span>18 Articles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="friends-box-card-footer">
+                <p>Joined 28/08/2020</p>
+                <div class="friends-box-card-footer-buttons">
+                  <a href="https://www.linkedin.com/in/eyar-ben-tolila/">Profile</a>
+                  <a href="/#" onclick="deleteProfile('Eyar Ben-Tolila')">Remove</a>
+                </div>
+              </div>
+            </div>
+            <div class="friends-box-card">
+              <div class="friends-box-card-contact">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="friends-box-card-info">
+                <img src="https://media.licdn.com/dms/image/v2/C4D03AQFG1A_PSmyEAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1652626663988?e=1732752000&v=beta&t=sTvblIAYxIPCYoBQu4J2C1n6cvIrscTZt67931cqeLE" alt="" />
+                <h4>Usman Ali</h4>
+                <p>Python Developer</p>
+              </div>
+              <div class="friends-box-card-body">
+                <ul>
+                  <li>
+                    <i class="fa-regular fa-face-smile"></i
+                    ><span>70 Friends</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-code-commit"></i
+                    ><span>30 Projects</span>
+                  </li>
+                  <li>
+                    <i class="fa-regular fa-newspaper"></i
+                    ><span>18 Articles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="friends-box-card-footer">
+                <p>Joined 28/06/2020</p>
+                <div class="friends-box-card-footer-buttons">
+                  <a href="https://www.linkedin.com/in/usman-ali-070243235/">Profile</a>
+                  <a href="/#" onclick="deleteProfile('Usman Ali')">Remove</a>
+                </div>
+              </div>
+            </div>
+            <div class="friends-box-card">
+              <div class="friends-box-card-contact">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="friends-box-card-info">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQH-w92K9cDaHg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723725332098?e=1732752000&v=beta&t=_omj3qeTca44efRSNmfByEtazo4yfKdrso82IHpP1vc" alt="" />
+                <h4>Hadi Hassan</h4>
+                <p>Cloud Developer</p>
+              </div>
+              <div class="friends-box-card-body">
+                <ul>
+                  <li>
+                    <i class="fa-regular fa-face-smile"></i
+                    ><span>30 Friends</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-code-commit"></i
+                    ><span>11 Projects</span>
+                  </li>
+                  <li>
+                    <i class="fa-regular fa-newspaper"></i
+                    ><span>12 Articles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="friends-box-card-footer">
+                <p>Joined 02/08/2020</p>
+                <div class="friends-box-card-footer-buttons">
+                  <a href="https://www.linkedin.com/in/hadi-hassan-058074183/">Profile</a>
+                  <a href="/#" onclick="deleteProfile('Hadi Hassan')">Remove</a>
+                </div>
+              </div>
+            </div>
+            <div class="friends-box-card">
+              <div class="friends-box-card-contact">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="friends-box-card-info">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHN3tSx_RxQXA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1713376474774?e=1732752000&v=beta&t=xmNCX1lH6JBz8hS-xfIW-INwfkukf2CEB22xyrtFe_0" alt="" />
+                <h4>Zeeshan Ali</h4>
+                <p>JavaScript Developer</p>
+              </div>
+              <div class="friends-box-card-body">
+                <h1>VIP</h1>
+                <ul>
+                  <li>
+                    <i class="fa-regular fa-face-smile"></i
+                    ><span>99 Friends</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-code-commit"></i
+                    ><span>15 Projects</span>
+                  </li>
+                  <li>
+                    <i class="fa-regular fa-newspaper"></i
+                    ><span>25 Articles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="friends-box-card-footer">
+                <p>Joined 02/10/2021</p>
+                <div class="friends-box-card-footer-buttons">
+                  <a href="https://www.linkedin.com/in/zeeshan-ali-a57a17176/">Profile</a>
+                  <a href="/#" onclick="deleteProfile('Zeeshan Ali')">Remove</a>
+                </div>
+              </div>
+            </div>
+            <div class="friends-box-card">
+              <div class="friends-box-card-contact">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="friends-box-card-info">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQEgLiWLbr293Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1696255759334?e=1732752000&v=beta&t=oGzhiABYqQPYWdi-RcsWxmhEMtU_2LuHCMNrp_ASot4" alt="" />
+                <h4>Malik Moeez</h4>
+                <p>AI Developer</p>
+              </div>
+              <div class="friends-box-card-body">
+                <h1>VIP</h1>
+                <ul>
+                  <li>
+                    <i class="fa-regular fa-face-smile"></i
+                    ><span>80 Friends</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-code-commit"></i
+                    ><span>30 Projects</span>
+                  </li>
+                  <li>
+                    <i class="fa-regular fa-newspaper"></i
+                    ><span>18 Articles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="friends-box-card-footer">
+                <p>Joined 28/08/2020</p>
+                <div class="friends-box-card-footer-buttons">
+                  <a href="https://www.linkedin.com/in/malik-moeez-163a68266/">Profile</a>
+                  <a href="/#" onclick="deleteProfile('Malik Moeez')">Remove</a>
+                </div>
+              </div>
+            </div>
+            <div class="friends-box-card">
+              <div class="friends-box-card-contact">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="friends-box-card-info">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQFb61_-OhNR-Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1694464315049?e=1732752000&v=beta&t=IghBb7p5JxKVvGC_iCn2ZBsp9hG13pmhoV-66cGN44I" alt="" />
+                <h4>Numan Abid</h4>
+                <p>Front-End Developer</p>
+              </div>
+              <div class="friends-box-card-body">
+                <ul>
+                  <li>
+                    <i class="fa-regular fa-face-smile"></i
+                    ><span>80 Friends</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-code-commit"></i
+                    ><span>20 Projects</span>
+                  </li>
+                  <li>
+                    <i class="fa-regular fa-newspaper"></i
+                    ><span>18 Articles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="friends-box-card-footer">
+                <p>Joined 02/06/2020</p>
+                <div class="friends-box-card-footer-buttons">
+                  <a href="https://www.linkedin.com/in/numan-abid-6703261b6/">Profile</a>
+                  <a href="/#" onclick="deleteProfile('Numan Abid')">Remove</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function deleteProfile(username) {
+  if (confirm("Are you sure you want to delete this profile?")) {
+    // Logic to delete the profile goes here
+    alert(`${username}'s profile has been deleted.`);
+    // Reload to update the view
+    location.reload();
+  }
+}
+
+    </script>
+  </body>
+</html>
